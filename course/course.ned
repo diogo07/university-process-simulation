@@ -1,7 +1,7 @@
-package curso;
+package course;
 
 
-simple Periodo {
+simple Period {
     parameters:
         @display("i=device/periodo;i2=status/red, red");
     gates:
@@ -9,13 +9,13 @@ simple Periodo {
         output out[2];
 }
 
-network Curso {
+network Course {
     types:
         channel D extends ned.DelayChannel {
             delay = 60s;
         }
     submodules:
-        p[10]: Periodo;
+        p[10]: Period;
     connections:
         
         for i=0..sizeof(p)-1 {            

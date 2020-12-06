@@ -2,9 +2,8 @@
 #include <omnetpp.h>
 #include <math.h>
 using namespace omnetpp;
-using namespace std;
 
-class Periodo : public cSimpleModule {
+class Period : public cSimpleModule {
   private:
     double evaluation = 0.0;
     int disapprovals = 0;
@@ -20,10 +19,10 @@ class Periodo : public cSimpleModule {
     };
 };
 
-Define_Module(Periodo);
+Define_Module(Period);
 
 
-void Periodo::updateDisplay() {
+void Period::updateDisplay() {
     const char* txt2 = "off";
     const char* color = "red";
     const char* status = "status/red";
@@ -40,9 +39,12 @@ void Periodo::updateDisplay() {
     bubble(msgRep);
 }
 
-void Periodo::initialize() {
+void Period::initialize() {
     randomEvaluation();
     if (getIndex() == 0) {
+
+       disapprovals = 0;
+
        if (evaluation >= 70.0){
            updateDisplay();
            cMessage *msg = new cMessage("Discente");
@@ -56,7 +58,7 @@ void Periodo::initialize() {
     }
 }
 
-void Periodo::handleMessage(cMessage *msg) {
+void Period::handleMessage(cMessage *msg) {
     randomEvaluation();
     disapprovals += 1;
     if (evaluation >= 70.0) {
