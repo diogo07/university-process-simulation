@@ -5,8 +5,6 @@ simple Periodo {
     parameters:
         @display("i=device/periodo;i2=status/red, red");
     gates:
-        //input in;
-        //output out;
         input in[2];
         output out[2];
 }
