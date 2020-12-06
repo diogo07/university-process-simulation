@@ -1,0 +1,8 @@
+/out
+Makefile
+.cproject
+.oppbuildspec
+.settings/
+.project
+.qtenvrc
+modelo-universidade.exe
